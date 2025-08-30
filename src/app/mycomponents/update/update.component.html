@@ -1,0 +1,166 @@
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
+<div class="flex min-h-screen bg-gray-50">
+
+  <!-- Sidebar -->
+  <aside class="p-2 bg-gradient-to-b from-gray-900 to-gray-800 text-gray-200 flex flex-col items-center py-6 space-y-8 shadow-lg">
+    <!-- Logo -->
+    <h1 class="text-xl font-extrabold text-blue-400">PH</h1>
+
+    <!-- Nav Icons -->
+     <!-- Home -->
+    <nav class="flex flex-col space-y-6 text-2xl">
+      <a routerLink="/home" routerLinkActive="active" class="hover:text-blue-400 transition-colors duration-200" title="Home">
+        <i class='bx bx-home text-2xl '></i>
+        
+      </a>
+      <!-- Create Post -->
+      <a routerLink="/post" routerLinkActive="active" class="hover:text-blue-400 animate-pulse transition-colors duration-200" title="Create Post">
+       <i class='bxr  bx-plus-circle'  ></i>  
+
+      </a>
+
+      <!-- Update Post -->
+       <button popovertarget="update" class="cursor-pointer">
+
+         <a   class="hover:text-blue-400 transition-colors duration-200" title="Update Post">
+           <i class='bx bx-edit'></i>
+          </a>
+        </button>
+
+      <!-- View Your Posts -->
+      <a routerLink="/show" routerLinkActive="active" class="hover:text-blue-400 transition-colors duration-200" title="My Posts">
+        <i class='bx bx-file'></i>
+      </a>
+
+      <!-- View All Posts -->
+      <a routerLink="/home" routerLinkActive="active" class="hover:text-blue-400 transition-colors duration-200" title="All Posts">
+        <i class='bx bx-news'></i>
+      </a>
+      <!-- need help -->
+        <a routerLink="/help" routerLinkActive="active" class="hover:text-blue-400 transition-colors duration-200" title="Help">
+       <!-- Help Icon -->
+<i class="bx bx-help-circle   "></i>
+
+      </a>
+    </nav>
+
+    <!-- Bottom Logout -->
+    <button routerLink="/" class="mt-auto mb-4 hover:text-red-400 text-xl transition-colors duration-200" title="Logout">
+      <i class='bx bx-log-out'></i>
+    </button>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-gray-900 to-gray-800 text-gray-100 flex justify-between items-center px-6 py-4 shadow-md">
+      <h1 class="text-2xl font-bold text-blue-400">PostHub</h1>
+      <button (click)="lgo()" class="bg-blue-600 cursor-pointer hover:bg-blue-700 px-4 py-2 rounded-lg shadow-md transition duration-200"  routerLink="/login">
+        Logout
+      </button>
+      
+    </header>
+
+    
+   
+
+    <!-- Router Content -->
+    <section class="flex-1 lg:p-6 p-2">
+      <router-outlet></router-outlet>
+    </section>
+<div class="flex justify-center mt-15 min-h-screen bg-gray-100  p-2">
+  <div class="bg-white shadow-lg rounded-xl p-6 w-full h-fit max-w-lg  shadow-gray-500">
+    
+    <!-- Top Bar -->
+    <div class="flex items-center space-x-3 mb-4">
+      <!-- Profile Avatar -->
+      <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 font-bold">
+       U
+      </div>
+      <h2 class="text-lg font-semibold text-gray-700">Edit Post</h2>
+    </div>
+
+    <!-- Form -->
+    <form #posts="ngForm" (ngSubmit)="update(posts.value)" class="space-y-4">
+      <label class="input_label" for="name"><span class="text-red-500 text-xs italic" *ngIf="name.errors?.['minlength'] || name.errors?.['pattern']">Only letters allowed, minimum 4 characters</span></label>
+      <!-- Name -->
+      <input 
+        type="text" 
+        id="name" 
+        name="name" 
+        minlength="4"
+         pattern="^[A-Za-z ]+$" 
+        #name="ngModel" 
+        placeholder="Your Name"
+        class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+        [ngModel]="selectedpost?.name">
+      
+      <!-- Email -->
+      <input 
+        type="email" 
+        id="email" 
+        name="email" 
+       required
+        readonly
+        placeholder="Your Email"
+        class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+        [ngModel]="selectedpost?.email">
+
+      <!-- Post -->
+       <label class="input_label" for="name"><span class="text-red-500" *ngIf="post.invalid || post.errors?.['minlength']">Minimum 8 characters.</span></label>
+
+      <textarea 
+        id="post" 
+        name="post" 
+        #post="ngModel" 
+        rows="4"
+        minlength="8"
+        required
+        placeholder="What do you want to talk about?"
+        class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-500 focus:outline-none resize-none"
+        [ngModel]="selectedpost?.post"></textarea>
+
+      <!-- Action Buttons -->
+      <div class="flex justify-center items-center">
+     
+        
+        <button 
+          type="submit" 
+           [disabled]="posts.invalid"  class="sign-in_btn disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer">
+          Edit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+</main>
+</div>
+<dialog id="update" popover>
+ 
+ <div class="w-80 mx-auto bg-white shadow-lg rounded-2xl p-6 ">
+  
+  <!-- Instruction Text -->
+  <p class="text-gray-700 font-medium">
+  📝 To edit the post, click the Edit button below Posts"
+  </p>
+
+  <!-- Empty Image Placeholder -->
+  <div class="  flex items-center justify-center text-gray-400">
+ <img src="edit.png" alt="" class="object-cover border-2 border-dashed rounded-md">
+  </div>
+
+  
+        <button type="button" class="btn-accept  " popovertargetaction="hide" popovertarget="update">OK</button>
+
+
+
+</div>
+
+
+
+
+   
+    </dialog>

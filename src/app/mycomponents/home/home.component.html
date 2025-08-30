@@ -1,0 +1,356 @@
+<!-- Boxicons CSS -->
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
+<div class="flex min-h-screen bg-gray-50">
+
+  <!-- Sidebar -->
+  <aside class="p-2 bg-gradient-to-b from-gray-900 to-gray-800 text-gray-200 flex flex-col items-center py-6 space-y-8 shadow-lg">
+    <!-- Logo -->
+    <h1 class="text-xl font-extrabold text-blue-400">PH</h1>
+
+    <!-- Nav Icons -->
+     <!-- Home -->
+    <nav class="flex flex-col space-y-6 text-2xl">
+      <a routerLink="/home" routerLinkActive="active" class="hover:text-blue-400 transition-colors duration-200" title="Home">
+        <i class='bx bx-home text-2xl '></i>
+        
+      </a>
+      <!-- Create Post -->
+      <a routerLink="/post" routerLinkActive="active" class="hover:text-blue-400 animate-pulse transition-colors duration-200" title="Create Post">
+       <i class='bxr  bx-plus-circle'  ></i>  
+
+      </a>
+
+      <!-- Update Post -->
+       <button popovertarget="update">
+
+         <a   class="hover:text-blue-400 transition-colors duration-200 " title="Update Post">
+           <i class='bx bx-edit cursor-pointer'></i>
+          </a>
+        </button>
+
+      <!-- View Your Posts -->
+      <a routerLink="/show" routerLinkActive="active" class="hover:text-blue-400 transition-colors duration-200" title="My Posts">
+        <i class='bx bx-file'></i>
+      </a>
+
+      <!-- View All Posts -->
+      <a routerLink="/home" routerLinkActive="active" class="hover:text-blue-400 transition-colors duration-200" title="All Posts">
+        <i class='bx bx-news'></i>
+      </a>
+      <!-- need help -->
+        <a routerLink="/help" routerLinkActive="active" class="hover:text-blue-400 transition-colors duration-200" title="Help">
+       <!-- Help Icon -->
+<i class="bx bx-help-circle   "></i>
+
+      </a>
+    </nav>
+
+    <!-- Bottom Logout -->
+    <button routerLink="/login" class="mt-auto mb-4 cursor-pointer  hover:text-red-400 text-xl transition-colors duration-200" title="Logout">
+      <i class='bx bx-log-out'></i>
+    </button>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-gray-900 to-gray-800 text-gray-100 flex justify-between items-center px-6 py-4 shadow-md">
+      <h1 class="text-2xl font-bold text-blue-400">PostHub</h1>
+      <button (click)="lgo()" class="bg-blue-600 cursor-pointer hover:bg-blue-700 px-4 py-2 rounded-lg shadow-md transition duration-200"  routerLink="/login">
+        Logout
+      </button>
+      
+    </header>
+
+    
+   
+
+    <!-- Router Content -->
+    <section class="flex-1 lg:p-6 p-2">
+      <router-outlet></router-outlet>
+    </section>
+    <div class="min-h-screen bg-gray-100 flex ">
+      
+      <!-- Left Sidebar -->
+      <aside class="w-64 bg-white shadow-lg hidden md:flex flex-col p-6 space-y-6">
+        <h1 class="text-2xl font-bold text-blue-600">PostHub</h1>
+        <ul class="space-y-4 text-gray-600 font-medium">
+          <li><a routerLink="/home" class="flex items-center gap-2 hover:text-blue-600"><i class="bx bx-home text-xl"></i>
+            Home</a></li>
+      <li><a routerLink="/post" class="flex items-center gap-2 hover:text-blue-600"><i
+            class="bx bx-plus-circle text-xl"></i> Create Post</a></li>
+            <li><a routerLink="/home" class="flex items-center gap-2 hover:text-blue-600"><i
+              class="bx bx-compass text-xl"></i> Posts</a></li>
+      <li><a routerLink="/help" class="flex items-center gap-2 hover:text-blue-600"><i
+            class="bx bx-help-circle text-xl"></i> Help</a></li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 flex flex-col ">
+
+    <!-- Search bar -->
+    <div class="bg-white shadow-md px-6 py-4 border-b">
+      <div class="max-w-2xl mx-auto flex items-center gap-3">
+        <i class='bx bx-search text-gray-500 text-2xl'></i>
+        <input (input)="hidebanner()" name="search" type="text" list="suggest" [(ngModel)]="postname" placeholder="Search posts by name"
+          class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-400 focus:outline-none" />
+          <datalist id="suggest">
+          <option value="Malik Muhammad Umair">
+            <option value="Natan">
+              <option value="Ali">
+          <option value="Awais">
+            <option value="Asif">
+        </datalist>
+
+        
+      </div>
+    </div>
+    <!-- image slider -->
+    <section class="container">
+      <div class="slider-wrapper">
+        <div class="slider">
+          @if(change==1){
+            
+            <img  src="banner1.jpg" id="slide1" alt="" class="border-2 rounded-md border-gray-300 border-grove">
+          }
+          @else if(change==2){
+            
+            <img  src="banner2.jpg" id="slide2" alt="">
+          }
+          @else if(change==3){
+            
+            <img  src="banner3.jpg" alt="">
+          }
+        </div>
+        <div class="div text-center">
+
+          <!-- From Uiverse.io by kheshore -->
+          <div class="btn-conteiner cursor-pointer  mt-2">
+            <a (click)="changeposition()" class="btn-content ">
+              <span class="icon-arrow">
+                <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1"
+                  viewBox="0 0 66 43" height="30px" width="30px">
+                  <g fill-rule="evenodd" fill="none" stroke-width="1" stroke="none" id="arrow">
+                    <path fill="#9ee5fa"
+                      d="M40.1543933,3.89485454 L43.9763149,0.139296592 C44.1708311,-0.0518420739 44.4826329,-0.0518571125 44.6771675,0.139262789 L65.6916134,20.7848311 C66.0855801,21.1718824 66.0911863,21.8050225 65.704135,22.1989893 C65.7000188,22.2031791 65.6958657,22.2073326 65.6916762,22.2114492 L44.677098,42.8607841 C44.4825957,43.0519059 44.1708242,43.0519358 43.9762853,42.8608513 L40.1545186,39.1069479 C39.9575152,38.9134427 39.9546793,38.5968729 40.1481845,38.3998695 C40.1502893,38.3977268 40.1524132,38.395603 40.1545562,38.3934985 L56.9937789,21.8567812 C57.1908028,21.6632968 57.193672,21.3467273 57.0001876,21.1497035 C56.9980647,21.1475418 56.9959223,21.1453995 56.9937605,21.1432767 L40.1545208,4.60825197 C39.9574869,4.41477773 39.9546013,4.09820839 40.1480756,3.90117456 C40.1501626,3.89904911 40.1522686,3.89694235 40.1543933,3.89485454 Z"
+                      id="arrow-icon-one"></path>
+                    <path fill="#9ee5fa"
+                      d="M20.1543933,3.89485454 L23.9763149,0.139296592 C24.1708311,-0.0518420739 24.4826329,-0.0518571125 24.6771675,0.139262789 L45.6916134,20.7848311 C46.0855801,21.1718824 46.0911863,21.8050225 45.704135,22.1989893 C45.7000188,22.2031791 45.6958657,22.2073326 45.6916762,22.2114492 L24.677098,42.8607841 C24.4825957,43.0519059 24.1708242,43.0519358 23.9762853,42.8608513 L20.1545186,39.1069479 C19.9575152,38.9134427 19.9546793,38.5968729 20.1481845,38.3998695 C20.1502893,38.3977268 20.1524132,38.395603 20.1545562,38.3934985 L36.9937789,21.8567812 C37.1908028,21.6632968 37.193672,21.3467273 37.0001876,21.1497035 C36.9980647,21.1475418 36.9959223,21.1453995 36.9937605,21.1432767 L20.1545208,4.60825197 C19.9574869,4.41477773 19.9546013,4.09820839 20.1480756,3.90117456 C20.1501626,3.89904911 20.1522686,3.89694235 20.1543933,3.89485454 Z"
+                      id="arrow-icon-two"></path>
+                      <path fill="#9ee5fa"
+                      d="M0.154393339,3.89485454 L3.97631488,0.139296592 C4.17083111,-0.0518420739 4.48263286,-0.0518571125 4.67716753,0.139262789 L25.6916134,20.7848311 C26.0855801,21.1718824 26.0911863,21.8050225 25.704135,22.1989893 C25.7000188,22.2031791 25.6958657,22.2073326 25.6916762,22.2114492 L4.67709797,42.8607841 C4.48259567,43.0519059 4.17082418,43.0519358 3.97628526,42.8608513 L0.154518591,39.1069479 C-0.0424848215,38.9134427 -0.0453206733,38.5968729 0.148184538,38.3998695 C0.150289256,38.3977268 0.152413239,38.395603 0.154556228,38.3934985 L16.9937789,21.8567812 C17.1908028,21.6632968 17.193672,21.3467273 17.0001876,21.1497035 C16.9980647,21.1475418 16.9959223,21.1453995 16.9937605,21.1432767 L0.15452076,4.60825197 C-0.0425130651,4.41477773 -0.0453986756,4.09820839 0.148075568,3.90117456 C0.150162624,3.89904911 0.152268631,3.89694235 0.154393339,3.89485454 Z"
+                      id="arrow-icon-three"></path>
+                  </g>
+                </svg>
+              </span>
+            </a>
+          </div>
+
+        </div>
+
+
+      </div>
+    </section>
+    <div class="my-6 text-center">
+      <h1 class="text-4xl font-extrabold text-blue-600 tracking-wide drop-shadow-md animate-pulse">
+        All Posts
+      </h1>
+      <p class="text-gray-500 mt-2 text-lg">
+        See all the posts created by others and you!
+      </p>
+    </div>
+    <!-- Posts -->
+    <div class="flex-1 p-6 space-y-6">
+      @for (post of postlists; track post.id) {
+      @if(postname==post.name){
+        
+      <div
+        class="bg-white rounded-2xl shadow-md border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow duration-300">
+
+        <!-- Header: Avatar + Name + Email -->
+        <div class="flex items-center p-4 gap-4">
+          <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/960px-Unknown_person.jpg?20200423155822"
+            class="w-12 h-12 rounded-full shadow" alt="User avatar" />
+            <div>
+              <h2 class="font-bold text-lg text-gray-800">{{ post.name }}</h2>
+            <p class="text-gray-500 text-sm">{{ post.email }}</p>
+          </div>
+        </div>
+        
+        <!-- Display Picture -->
+        <div class="w-full h-64 p-2 overflow-hidden">
+          <img [src]="'data:image/png;base64,' + post.displayPicture"
+          class="w-full h-full object-contain rounded-lg shadow" loading="lazy">
+        </div>
+        
+        <!-- Post Body -->
+        <div class="px-6 py-4">
+          <p class="text-gray-700 leading-relaxed break-words whitespace-pre-line">
+            {{ post.post }}
+          </p>
+        </div>
+        
+        <!-- Likes / Comments / Views -->
+        <div class="flex justify-between items-center px-6 py-3 border-t border-gray-100 text-gray-600">
+          <div class="flex items-center gap-1 cursor-pointer">
+            <i class="bx bxs-heart text-red-500  text-xl" (click)="increment()"></i>
+            <span (click)="increment()">{{count}}</span>
+          </div>
+              <button popovertarget="comment" class="cursor-pointer">
+
+                <div class="flex items-center gap-1">
+                  <i class="bx bx-comment text-blue-500 text-xl"></i>
+                  <span>{{post.id+7}}</span>
+                </div>
+              </button>
+          <div class="flex items-center text-blue-500 gap-1">
+            <i class="bx bx-show text-xl"></i>
+            <span>{{post.id+222}}</span>
+          </div>
+        </div>
+
+        <!-- Footer Buttons -->
+     
+        
+      </div>
+    }
+    @else if(postname==""){
+      
+
+      <div
+      class="bg-white rounded-2xl shadow-md border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow duration-300">
+      
+      <!-- Header: Avatar + Name + Email -->
+      <div class="flex items-center p-4 gap-4">
+        <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/960px-Unknown_person.jpg?20200423155822"
+            class="w-12 h-12 rounded-full shadow" alt="User avatar" />
+          <div>
+            <h2 class="font-bold text-lg text-gray-800">{{ post.name }}</h2>
+            <p class="text-gray-500 text-sm">{{ post.email }}</p>
+          </div>
+        </div>
+
+        <!-- Display Picture -->
+        <div class="w-full h-64 p-2 overflow-hidden">
+          <img [src]="'data:image/png;base64,' + post.displayPicture"
+            class="w-full h-full object-contain rounded-lg shadow" loading="lazy">
+          </div>
+
+        <!-- Post Body -->
+        <div class="px-6 py-4">
+          <p class="text-gray-700 leading-relaxed break-words whitespace-pre-line">
+            {{ post.post }}
+          </p>
+        </div>
+
+        <!-- Likes / Comments / Views -->
+        <div class="flex justify-between items-center px-6 py-3 border-t border-gray-100 text-gray-600">
+          <div class="flex items-center gap-1 cursor-pointer">
+            <i class="bx bxs-heart text-red-500 text-xl" (click)="increment()"></i>
+            <span (click)="increment()">{{count}}</span>
+          </div>
+          <button popovertarget="comment" class="cursor-pointer">
+
+            <div class="flex items-center gap-1">
+              <i class="bx bx-comment text-blue-500 text-xl " ></i>
+              <span>{{post.id+7}}</span>
+            </div>
+          </button>
+          <div class="flex items-center text-blue-500 gap-1">
+            <i class="bx bx-show text-xl"></i>
+            <span>{{post.id+222}}</span>
+          </div>
+        </div>
+
+        <!-- Footer Buttons -->
+       
+
+      </div>
+      }
+      
+    }
+    </div>
+  </main>
+
+  <!-- Right Sidebar -->
+  <aside class="w-72 bg-white shadow-lg hidden lg:flex flex-col p-6 space-y-4">
+    <h2 class="text-xl font-semibold text-gray-700 mb-4">Quick Actions</h2>
+    <button routerLink="/home"
+      class="flex items-center gap-2 cursor-pointer px-4 py-3 rounded-xl shadow bg-blue-600 hover:bg-blue-700 text-white transition-colors duration-200">
+      <i class="bx bx-compass text-xl "></i> See All Posts
+    </button>
+    <button routerLink="/post"
+      class="flex items-center gap-2 cursor-pointer px-4 py-3 rounded-xl shadow bg-green-600 hover:bg-green-700 text-white transition-colors duration-200">
+      <i class="bx bx-plus-circle text-xl"></i> Create Post
+    </button>
+    <button routerLink="/help"
+      class="flex items-center gap-2 px-4 py-3 cursor-pointer rounded-xl shadow bg-red-600 hover:bg-red-700 text-white transition-colors duration-200">
+      <i class="bx bx-chat text-xl "></i> Need Help
+    </button>
+    
+    <div class="mt-6 text-gray-500 text-sm border-t pt-4">
+      Coming soon: Friends List, Trends...
+    </div>
+  </aside>
+  
+</div>
+</main>
+
+</div>
+<!-- modal logic -->
+ <!-- show popover -->
+<dialog id="comment" popover>
+ 
+ <div class="con p-4 rounded-md bg-white">
+<h1 class="font-[Roboto] text-blue-500  font-bold">Inbuild feature</h1>
+   <div class="relative flex w-64 animate-pulse gap-2 p-4">
+     <div class="h-12 w-12 rounded-full bg-slate-400"></div>
+  <div class="flex-1">
+    <div class="mb-1 h-5 w-3/5 rounded-lg bg-slate-400 text-lg"></div>
+    <div class="h-5 w-[90%] rounded-lg bg-slate-400 text-sm"></div>
+  </div>
+  <div class="absolute bottom-5 right-0 h-4 w-4 rounded-full bg-slate-400"></div>
+</div>
+      <button type="button" class="btn-accept" popovertargetaction="hide" popovertarget="comment">OK</button>
+
+
+
+
+    </div>
+    </dialog>
+
+     <!-- update popover -->
+<dialog id="update" popover>
+ 
+ <div class="w-80 mx-auto bg-white shadow-lg rounded-2xl p-6 ">
+  
+  <!-- Instruction Text -->
+  <p class="text-gray-700 font-medium">
+  📝 To edit the post, click the Edit button below Posts"
+  </p>
+
+  <!-- Empty Image Placeholder -->
+  <div class="  flex items-center justify-center text-gray-400">
+ <img src="edit.png" alt="" class="object-cover border-2 border-dashed rounded-md">
+  </div>
+
+  
+        <button type="button" class="btn-accept  " popovertargetaction="hide" popovertarget="update">OK</button>
+
+
+
+</div>
+
+
+
+
+   
+    </dialog>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,98 @@
+<header class="text-gray-400 bg-gray-900 body-font flex justify-center items-center">
+  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center justify-center">
+    <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0 justify-center">
+     <img src="https://videos.openai.com/vg-assets/assets%2Ftask_01k3k4h4npfkk9sv5atn0mva9b%2F1756210287_img_0.webp?st=2025-08-28T08%3A03%3A39Z&se=2025-09-03T09%3A03%3A39Z&sks=b&skt=2025-08-28T08%3A03%3A39Z&ske=2025-09-03T09%3A03%3A39Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=3d249c53-07fa-4ba4-9b65-0bf8eb4ea46a&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=UYfdFmgog4%2FMw8dpQD42fBY2ILIazVfaiRaU8NJE5p0%3D&az=oaivgprodscus" alt="img" class="w-12 h-12 rounded-full">
+      <span class="ml-3 text-xl">PostHub</span>
+    </a>
+    <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center ml-7 ">
+      <a routerLink="/login" class="mr-5 hover:text-white">Home</a>
+      <a routerLink="/about" class="mr-5 hover:text-white">About</a>
+      <a routerLink="/features" class="mr-5 hover:text-white">Features</a>
+      
+    </nav>
+   
+  </div>
+</header>
+
+<main class="bg-gray-50 text-gray-800">
+
+  <!-- HERO -->
+  <section class="container mx-auto px-6 py-16 grid gap-8 md:grid-cols-2 items-center">
+    <div>
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-4">
+        Share ideas. Discover posts. <span class="text-indigo-600">Join PostHub</span>
+      </h1>
+      <p class="text-lg text-gray-600 mb-6">
+        PostHub is a lightweight platform to create, browse and interact with posts. Fast, mobile friendly and easy to use.
+      </p>
+
+      <ul class="space-y-3 mb-6">
+        <li class="flex items-start gap-3">
+          <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-indigo-100 text-indigo-600">✓</span>
+          <span>Create posts with images and text</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-indigo-100 text-indigo-600">✓</span>
+          <span>Live search & suggestions</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-indigo-100 text-indigo-600">✓</span>
+          <span>Like, comment and manage posts</span>
+        </li>
+      </ul>
+
+      <div class="flex gap-3">
+        <a routerLink="/login" class="px-5 py-3 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700">Create Post</a>
+    
+    </div>
+    </div>
+        
+    <div>
+      
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="container mx-auto px-6 py-12">
+    <h2 class="text-3xl font-bold text-center mb-8">Features</h2>
+
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="p-6 bg-white rounded-2xl shadow hover:shadow-lg transition">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-12 h-12 rounded-lg bg-indigo-50 flex items-center justify-center">📸</div>
+          <h3 class="text-xl font-semibold">Image posts</h3>
+        </div>
+        <p class="text-gray-600">Upload and display images with posts; responsive and lazy-loaded for performance.</p>
+      </div>
+
+      <div class="p-6 bg-white rounded-2xl shadow hover:shadow-lg transition">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-12 h-12 rounded-lg bg-indigo-50 flex items-center justify-center">🔎</div>
+          <h3 class="text-xl font-semibold">Search & Suggestions</h3>
+        </div>
+        <p class="text-gray-600">Search posts by name with live suggestions from the datalist or backend.</p>
+      </div>
+
+      <div class="p-6 bg-white rounded-2xl shadow hover:shadow-lg transition">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-12 h-12 rounded-lg bg-indigo-50 flex items-center justify-center">❤️</div>
+          <h3 class="text-xl font-semibold">Likes & Comments</h3>
+        </div>
+        <p class="text-gray-600">Simple reaction system and comment counts to boost engagement.</p>
+      </div>
+
+      <!-- add more cards as needed -->
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-gradient-to-r from-indigo-600 to-indigo-500 text-white py-12">
+    <div class="container mx-auto px-6 text-center">
+      <h3 class="text-2xl font-bold mb-3">Ready to start?</h3>
+      <p class="mb-6">Create your first post in seconds.</p>
+      <a routerLink="/login" class="inline-block px-6 py-3 bg-white text-indigo-600 rounded-lg font-semibold">Create Post</a>
+    </div>
+  </section>
+</main>
+
+

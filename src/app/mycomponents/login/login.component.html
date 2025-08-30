@@ -1,0 +1,74 @@
+<header class="text-gray-400 bg-gray-900 body-font flex justify-center items-center">
+  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center justify-center">
+    <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0 justify-center">
+     <img src="https://videos.openai.com/vg-assets/assets%2Ftask_01k3k4h4npfkk9sv5atn0mva9b%2F1756210287_img_0.webp?st=2025-08-28T08%3A03%3A39Z&se=2025-09-03T09%3A03%3A39Z&sks=b&skt=2025-08-28T08%3A03%3A39Z&ske=2025-09-03T09%3A03%3A39Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=3d249c53-07fa-4ba4-9b65-0bf8eb4ea46a&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=UYfdFmgog4%2FMw8dpQD42fBY2ILIazVfaiRaU8NJE5p0%3D&az=oaivgprodscus" alt="img" class="w-12 h-12 rounded-full">
+      <span class="ml-3 text-xl">PostHub</span>
+    </a>
+    <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center ml-7 ">
+      <a routerLink="/login" class="mr-5 hover:text-white">Home</a>
+      <a routerLink="/about" class="mr-5 hover:text-white">About</a>
+      <a routerLink="/features" class="mr-5 hover:text-white">Features</a>
+      
+    </nav>
+   
+  </div>
+</header>
+
+<div class="controller">
+  <form #loginform="ngForm" class="form_container" (ngSubmit)="onsubmit()">
+    
+    <div class="title_container">
+      <p class="title">Login to your Account</p>
+      <span class="subtitle">Get started with our app, just Login an account and enjoy the experience.</span>
+    </div>
+
+    <br />
+
+    <!-- Email -->
+    <div class="input_container">
+      <label class="input_label" for="email">Email <span class="text-red-500" *ngIf="email.invalid && email.errors?.['pattern']">must be valid.</span>
+       
+</label>
+      <input 
+        placeholder="name@mail.com" 
+       pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$" 
+        name="email" 
+        #email="ngModel" 
+        type="email" 
+        class="input_field" 
+        id="email" 
+        [(ngModel)]="credentials.email" 
+        required>
+    </div>
+
+    <!-- Password -->
+    <div class="input_container">
+      <label class="input_label" for="password">Password <span *ngIf="name.invalid " class="text-red-500"> is required of min lenght 5.</span></label>
+
+      <input 
+        placeholder="Password" 
+        minlength="5"
+        name="password" 
+        #name="ngModel" 
+        type="password" 
+        class="input_field" 
+        id="password" 
+        [(ngModel)]="credentials.password" 
+        required>
+    </div>
+
+    <!-- Submit -->
+    <button type="submit"  [disabled]="loginform.invalid"  class="sign-in_btn disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer">
+      <span>Sign In</span>
+    </button>
+    <button routerLink="/" class="sign-in_btn cursor-pointer">
+      <span>Get Registered</span>
+    </button>
+
+    <p class="note">Terms of use &amp; Conditions</p>
+  </form>
+</div>
+<router-outlet></router-outlet>
+<!-- Debugging -->
+<!-- <p>{{ credentials.email }}</p>
+<p>{{ credentials.password }}</p> -->
