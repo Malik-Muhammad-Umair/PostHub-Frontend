@@ -10,11 +10,11 @@ export class RegisterService {
 
   constructor(private http:HttpClient) { }
   SubmitInfo(val:Information):Observable<Information>{
-    const url ="http://localhost:8080/login/info";
+    const url ="https://just-post-production.up.railway.app/login/info";
     return this.http.post<Information>(url,val)
   }
   Getinfo():Observable<Information[]>{
-    const url ="http://localhost:8080/login/infos";
+    const url ="https://just-post-production.up.railway.app/login/infos";
     return this.http.get<Information[]>(url)
   }
 }
