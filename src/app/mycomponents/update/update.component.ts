@@ -38,6 +38,7 @@ export class UpdateComponent implements OnInit {
       if (data) {
         this.ngOnInit();
         this.selectedpost = undefined;
+         window.location.href="/show"
       }
     });
   }
