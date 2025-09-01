@@ -58,7 +58,7 @@ onsubmit(formValue: any) {
 trick(){
   setTimeout(()=>{
 alert("Image must be less than 5MB");
-  },3000)
+  },4000)
 }
 lgo(){
   localStorage.setItem("name","");
